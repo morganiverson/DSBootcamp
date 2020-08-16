@@ -1,0 +1,218 @@
+body{
+    font-family: 'eurostilebold_extended_2';
+    text-transform: uppercase;
+}
+#flyer_base{
+    position:relative;
+    height: 680px;
+    width:480px;
+    background-color: black;
+    color:white;
+    text-align: center;
+}
+/*    FLYERSTYLES.CSS*/
+
+/*    DIV 1 - LOGO AND TITLE*/
+#logo_title {
+    text-align: center;
+    margin-bottom: 25px;
+    width:480px;
+    height:100px;
+    box-sizing: border-box;
+    float: left;
+}
+#logoIMG{
+    height: 70px;
+    margin-top: 15px;
+    margin-bottom: 0;
+    /*        SET WIDTH HEIGHT
+    BOTTOMMARGIN 0/-N
+    TOP MARGIN SET
+    CENTER*/
+}
+#title{
+    margin-top: -2px;
+
+    box-sizing: border-box;
+    width:480px;
+    padding-left: 164px; /* HALF OF REMIANDER OF LOGO DIV*/
+    padding-right: 164px;
+
+    font-size:8.5px;
+/*    font-size: 10px;*/
+    line-height: 10px;
+    white-space: nowrap;
+    margin-bottom: 40px;
+
+    /*        ADJUST FOR ACTUAL LOGO*/
+}
+
+#ttl_line_1{
+    letter-spacing: .8px;
+/*    letter-spacing: 15px;*/
+}
+#ttl_line_2{
+    letter-spacing: 7px;
+}
+
+/*    DIV 2 - DATES,TIMES, LOCATION*/
+#date_time_details{
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+.date_time_details{
+    font-size: 10px;
+    margin-bottom: 25px;
+    width:153px; /*33.3%; */
+    float:left;
+    /*        //TRY THIRDS*/
+}
+#day{
+    padding-top: 3px;
+}
+#dates_list{
+    font-size:5px;
+    word-spacing: 3px;
+}
+
+#time{
+    font-size:12px;
+    letter-spacing: 5px;
+}
+#arrival_time{
+    font-size:5.5px;
+    letter-spacing: 2.6px;
+}
+
+#location{
+    padding-top: 3px;
+
+}
+#address{
+    font-size:5.5px;
+}
+
+/*    DIV 3 - coaches*/
+#coaches{
+    float: left;
+    height:200px;
+    margin-bottom: 20px;
+    margin-top: 20px;        }
+.coachDIV{
+    width: 240px;
+    float: left;
+}
+.IMGCont{
+    width:120px;
+    float: left;
+    padding-left: 5px;
+}
+.coachIMG{
+    width:120px;
+    /*        height:155px;*/
+    /*        OBJECT FIT COVER
+    SAME WIDTH AND HEIGHT*/
+}
+.coachName{
+    width: 240px;
+    padding-left: 25px;
+    padding-right:25px;
+    box-sizing: border-box;
+
+    text-align: justify;
+    text-align-last: justify;
+    margin-bottom: 10px;
+}
+
+.accolades{
+    float:left;
+    padding-top: 10px;
+    width:240px;
+    box-sizing: border-box;
+    padding-left:35px;
+    padding-right: 35px;
+
+    font-size:6px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: justify;
+}
+
+#scott_line_2 {letter-spacing: 2.2px;}
+#scott_line_3{letter-spacing: .7px;}
+#price_line_1{letter-spacing: .5;}
+#price_line_2{letter-spacing: -.3}
+/*#price_line_3{letter-spacing: }*/
+
+
+/*    DIV 4 - COST*/
+#cost{
+    height:70px;
+    float:left;
+    margin-bottom: 25px;
+}
+#cash{
+    padding-top: 4px;
+    font-size: 9px;
+}
+#cost_value{
+    font-size: 20px;
+}
+#square{
+    font-size: 8px;
+    box-sizing: border-box;
+    padding-right: 5px;
+    letter-spacing: -.5px;
+}
+#squareIMG{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height:20px;
+}
+.cost_40{
+    width:192px; /* 40% */
+    float:left;
+}
+.cost_20{
+    width:96px; /* 40% */
+    float:left;
+}
+
+/*    DIV 5 - ENCOURAGEMENT*/
+#encourage{
+    width:480px;/*100%; */
+    float:left;
+    height:50px;
+/*    margin-bottom: 35px;*/
+    font-size: 17px;
+} 
+
+/*    DIV 6 - DETAILS*/
+#details{
+    box-sizing: border-box;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: center;
+    float:left;
+    font-size:5px;
+    width:480px; /*100%; */
+
+    float:left;
+}
+
+/*      DIV 7 - SOCIAL MEDIA*/
+#social{
+    font-size: 8px;
+    /*            margin-bottom: 20px;*/
+    position: absolute;
+    top: 635px;
+}
+#igpage{
+    letter-spacing: 5px;
+}
+#hashtag{
+    letter-spacing: 9px;
+}

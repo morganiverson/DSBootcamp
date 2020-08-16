@@ -1,6 +1,6 @@
 class CollageIMG{
     constructor(parent, img_src, height, width, initialTop, initialLeft, finalTop, finalLeft, transLen){
-        var img = true; //TEST IF IMG OR VIDEO - .end
+        this.img = img_src.indexOf(".mp4") < 0; //TEST IF IMG OR VIDEO - .end
        var outer = document.createElement("div");
         outer.style.position = "absolute";
         outer.style.height = height;
@@ -8,21 +8,23 @@ class CollageIMG{
         outer.style.top = initialTop;
         outer.style.left = initialLeft;
         outer.style.transition = "top " + transLen + "s , left " + transLen + "s";
-        outer.style.border = "1px solid black";
+//        outer.style.border = "1px solid black";
          outer.style.top = initialTop;
         outer.style.left = initialLeft;
         
         var inner;
         
-        if(img) {
+        if(this.img) {
         inner = document.createElement("img");
         }
         else {
             inner = document.createElement("video");
             inner.controls = false;
+            inner.autoplay = true;
             inner.loop = true;
             inner.muted = true;
         }
+        console.log("IMG:: " + this.img + "\nSRC:: " + img_src);
         
         inner.src = img_src;
         inner.style.objectFit = "cover";

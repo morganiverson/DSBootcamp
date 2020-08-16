@@ -33,7 +33,7 @@ function round(n, dec_places) {
     return parseInt(n * factor) / factor;
 }
 
-
+var trans_len = 1.5;
 class CollageBuild{
     constructor(parent, img_arr) {
         this.parent = parent;
@@ -41,7 +41,7 @@ class CollageBuild{
         this.img_arr = img_arr;
         this.col_img_arr = [];//CollageIMG Objects
         this.initialPositions = this.getInitialPositions(); 
-        console.log(this.initialPositions); //IMGPosition Objects
+//        console.log(this.initialPositions); //IMGPosition Objects
         
         this.num_imgs = img_arr.length;
         this.num_portraits = this.getNumPortraitImages();
@@ -55,7 +55,7 @@ class CollageBuild{
 
         this.def_img_height = round(this.par_height / this.rows, 2);
         this.def_img_width = round(this.par_width / this.columns, 2);
-        console.log(this);
+//        console.log(this);
 
 
         this.land_img_pos = this.fillDefaultLandscapePositions();
@@ -107,7 +107,7 @@ class CollageBuild{
 
     //UNTESTED - PORTRAIST > ROWS
     populatePortraitPositions() {
-        //        console.log(this.num_portraits);
+//                console.log(this.num_portraits);
         //RANDOMLY SPREAD PORTRAIT POSITIONS
         var row = 0;
         for(var i = 0; i < this.num_portraits; i++) {
@@ -124,6 +124,8 @@ class CollageBuild{
             }
 
             var new_port_pos = this.land_img_pos.splice(land_arr_pos, 1, null)[0]; 
+//            console.log(land_arr_pos);
+//            console.log(new_port_pos);
             //REMOVE AND RETURN LANDSCAPE POSITION COORDS
             //ADJUST REST OF ROW
             if(center(rand_col, this.columns)){
@@ -145,6 +147,7 @@ class CollageBuild{
                 //REDUCE LEFT VALUE (MOVE BACK)
                 var num_after = this.columns - (rand_col + 1);
                 var shift_left = (new_port_pos.width * .25) * (1 / num_after);
+                
                 //DIVIDE OTHER 1/4 OF WIDTH WIDTH FOLLWOING POSITION(S)
                 for(var ca = rand_col + 1; ca < this.columns; ca++) {
                     var curr_pos = this.land_img_pos[getArrayPosFrom(row, ca, this.columns)];
@@ -155,8 +158,12 @@ class CollageBuild{
                 }
 
                 //SET LEFT AND WIDTH OF NEW PORTRAIT POSITION
-                var prev_pos = this.land_img_pos[getArrayPosFrom(row, rand_col) - 1];
-                new_port_pos.left = prev_pos.left + prev_pos.width;
+                
+                var prev_pos = this.land_img_pos[getArrayPosFrom(row, rand_col, this.columns) - 1];
+                
+//                console.log(prev_pos);
+                
+                new_port_pos.left = new_port_pos.left + (num_before * add_width);
                 new_port_pos.width *=.5;
             }
             else if (rand_col == (this.columns - 1)){
@@ -170,7 +177,7 @@ class CollageBuild{
                     if(curr_pos != null){
                         this.land_img_pos[getArrayPosFrom(row, r, this.columns)].width += add_width;
                         if(r > 0) {
-                            this.land_img_pos[getArrayPosFrom(row, r)].left += r * add_width;  
+                            this.land_img_pos[getArrayPosFrom(row, r, this.columns)].left += r * add_width;  
                         }
                     }
                 }
@@ -235,12 +242,13 @@ class CollageBuild{
         var loc_img_arr = this.img_arr;
         this.img_arr.forEach(function(item, index) {
             if(item.indexOf("_P") >=0) n++;
+            console.log(item);
         });
         return n;
     }
 
     getInitialPositions(){
-        console.log(this);
+//        console.log(this);
         var top = 0;
         var left = 0;
         var temp_initial = [];
@@ -248,7 +256,7 @@ class CollageBuild{
         var par_wid = parseInt(this.parent.style.width);
         var par_left = parseInt(window.getComputedStyle(this.parent).left);
         var par_top = parseInt(window.getComputedStyle(this.parent).top);
-        console.log(par_hgt + " " + par_wid + " " + par_left + " " + par_top);
+//        console.log(par_hgt + " " + par_wid + " " + par_left + " " + par_top);
         
         for(var i = 0; i < 3; i++) {
             for(var j = 0; j < 3; j++) {
@@ -279,6 +287,19 @@ class CollageBuild{
         var r = parseInt(Math.random() * this.initialPositions.length);
         return this.initialPositions[r];
     }
+    getRandomFinalPosition(landscape){
+        var arr, r;
+        if(landscape) {
+            arr = this.land_img_pos;
+            r = parseInt(Math.random() * arr.length);
+        }
+        else {
+            arr = this.port_img_pos;
+            r = parseInt(Math.random() * arr.length);
+        }
+        
+        return r;
+    }
     
     stripLandIMGPos() {
         for(var i = this.land_img_pos.length - 1; i >= 0; i--) {
@@ -302,15 +323,40 @@ class CollageBuild{
             
             var initialPosition = this.getRandomInitialPosition();
             
+            var r = -1;
+            var finalPosition = null;
 //            console.log(this.img_arr[curr_img]);
             if(this.img_arr[curr_img].indexOf("_P") >= 0){
-                this.col_img_arr.push(new CollageIMG(this.parent, this.img_arr[curr_img], this.port_img_pos[p].height, this.port_img_pos[p].width, initialPosition.top, initialPosition.left, this.port_img_pos[p].top, this.port_img_pos[p].left, 1));
-                p++;
+                
+                //RANDOM ORDER PLACEMENT
+                while(finalPosition == null) {
+                    r = this.getRandomFinalPosition(false);
+                    finalPosition = this.port_img_pos[r];
+                }
+//                console.log("P>>");
+//                console.log(finalPosition);
+                this.col_img_arr.push(new CollageIMG(
+                    this.parent, 
+                    this.img_arr[curr_img], 
+                    finalPosition.height, finalPosition.width, initialPosition.top, initialPosition.left, finalPosition.top, finalPosition.left, trans_len));
+//                console.log(this.col_img_arr[this.col_img_arr.length - 1])
+                this.port_img_pos[r] = null;
+                console.log(this.port_img_pos);
+//                p++;
             }
             else {
+                //RANDOM ORDER PLACEMENT
+                while(finalPosition == null) {
+                    r = this.getRandomFinalPosition(true);
+                    finalPosition = this.land_img_pos[r];
+                }
                 //CREATE COLLAGE IMG
-                this.col_img_arr.push(new CollageIMG(this.parent, this.img_arr[curr_img], this.land_img_pos[l].height, this.land_img_pos[l].width, initialPosition.top, initialPosition.left, this.land_img_pos[l].top, this.land_img_pos[l].left, 1));
-                l++;
+                this.col_img_arr.push(new CollageIMG(
+                    this.parent, 
+                    this.img_arr[curr_img],
+                    finalPosition.height, finalPosition.width, initialPosition.top, initialPosition.left, finalPosition.top, finalPosition.left, trans_len));
+                this.land_img_pos[r] = null;
+//                l++;
             }
             curr_img++;
             if(i == this.img_arr.length - 1) {
