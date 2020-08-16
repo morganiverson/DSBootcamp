@@ -24,7 +24,7 @@ class CollageIMG{
             inner.loop = true;
             inner.muted = true;
         }
-        console.log("IMG:: " + this.img + "\nSRC:: " + img_src);
+//        console.log("IMG:: " + this.img + "\nSRC:: " + img_src);
         
         inner.src = img_src;
         inner.style.objectFit = "cover";

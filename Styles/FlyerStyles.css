@@ -2,9 +2,9 @@ body{
     font-family: 'eurostilebold_extended_2';
     text-transform: uppercase;
 }
-#flyer_base{
+#flyer_base{padding-top: 20px;
     position:relative;
-    height: 680px;
+    height:630px;
     width:480px;
     background-color: black;
     color:white;
@@ -102,6 +102,7 @@ body{
 .coachDIV{
     width: 240px;
     float: left;
+    box-sizing: border-box;
 }
 .IMGCont{
     width:120px;
@@ -138,19 +139,24 @@ body{
     text-justify: inter-word;
     text-align-last: justify;
 }
+#scott_line_1{}
+#scott_line_2{letter-spacing: .7}
+#scott_line_3 {letter-spacing: 2.5px;}
+#scott_line_4{letter-spacing: 1px;}
+#scott_line_5{letter-spacing: .7px;}
 
-#scott_line_2 {letter-spacing: 2.2px;}
-#scott_line_3{letter-spacing: .7px;}
 #price_line_1{letter-spacing: .5;}
-#price_line_2{letter-spacing: -.3}
-/*#price_line_3{letter-spacing: }*/
+#price_line_2{letter-spacing: -.3;}
+#price_line_3{letter-spacing: 2px;}
+#price_line_4{letter-spacing: -.5px;}
+/*#price_line_5{letter-spacing: }*/
 
 
 /*    DIV 4 - COST*/
 #cost{
     height:70px;
     float:left;
-    margin-bottom: 25px;
+/*    margin-bottom: 25px;*/
 }
 #cash{
     padding-top: 4px;
@@ -183,24 +189,27 @@ body{
 #encourage{
     width:480px;/*100%; */
     float:left;
-    height:50px;
+    height:85px;
 /*    margin-bottom: 35px;*/
     font-size: 17px;
 } 
+#team_picture{
+    width: 300px;
+    margin-bottom: 30p
+}
 
 /*    DIV 6 - DETAILS*/
 #details{
     box-sizing: border-box;
     padding-left: 25px;
     padding-right: 25px;
-    text-align: justify;
-    text-justify: inter-word;
-    text-align-last: center;
-    float:left;
-    font-size:5px;
-    width:480px; /*100%; */
+    text-align: center;
 
+    margin-top: -7px;
+    margin-bottom: 20px;
     float:left;
+    font-size:3.7px;
+    width:480px; /*100%; */
 }
 
 /*      DIV 7 - SOCIAL MEDIA*/
@@ -208,7 +217,7 @@ body{
     font-size: 8px;
     /*            margin-bottom: 20px;*/
     position: absolute;
-    top: 635px;
+    top: 590px;
 }
 #igpage{
     letter-spacing: 5px;

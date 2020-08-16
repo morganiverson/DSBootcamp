@@ -4,12 +4,13 @@ class FlyerIntro{
         flyer_base.style.backgroundColor = "rgb(0, 0, 0, 0)";
 
         flyer_base.style.width = "480px";//.8 * parseInt(window.getComputedStyle(parent).width);
-        flyer_base.style.height = "680px";//.8 * parseInt(window.getComputedStyle(parent).height);
+        flyer_base.style.height = "630px";//.8 * parseInt(window.getComputedStyle(parent).height);
         
         flyer_base.style.position = "absolute";
         
          flyer_base.style.left = .1 * parseInt(window.getComputedStyle(parent).width);
-        flyer_base.style.top = .1 * parseInt(window.getComputedStyle(parent).height);
+        flyer_base.style.top = (parseInt(window.getComputedStyle(parent).height) - parseInt(flyer_base.style.height)) / 2;
+        console.log(flyer_base.style.top);
         flyer_base.style.position = "relative";
 
         

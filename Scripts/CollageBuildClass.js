@@ -1,26 +1,3 @@
-////window.addEventListener("load", function(){
-//    createDiv(500,800);
-//});
-
-
-
-function createDiv(width, height){
-    var par = document.createElement("div");
-    par.id = "parent";
-    par.style.width = width;
-    par.style.height = height;
-    par.style.position = "relative";
-    par.style.backgroundColor = "pink";
-    par.style.margin = "auto";
-    par.style.border = "1px solid black";
-
-
-    par.onclick = function() {
-        var build = new CollageBuild(par, collage_imgs);
-    }
-    document.body.appendChild(par);
-
-}
 
 function center(rand_col, num_col) {
     return (rand_col!= 0) && rand_col != (num_col - 1);
@@ -38,11 +15,13 @@ class CollageBuild{
     constructor(parent, img_arr) {
         this.parent = parent;
         
+        
         this.img_arr = img_arr;
         this.col_img_arr = [];//CollageIMG Objects
         this.initialPositions = this.getInitialPositions(); 
 //        console.log(this.initialPositions); //IMGPosition Objects
         
+        console.log("P = " + this.num_portraits);
         this.num_imgs = img_arr.length;
         this.num_portraits = this.getNumPortraitImages();
 
@@ -94,6 +73,7 @@ class CollageBuild{
                     continue;
                 }
             }
+            if(lo_factor == 3) break; //STOP IF N X 3
         }
 
         console.log(hi_factor + " x " + lo_factor);
@@ -110,7 +90,8 @@ class CollageBuild{
 //                console.log(this.num_portraits);
         //RANDOMLY SPREAD PORTRAIT POSITIONS
         var row = 0;
-        for(var i = 0; i < this.num_portraits; i++) {
+        //NUMBER OF PORTRAIT IMAGES CAN ONLLY
+        for(var i = 0; i < this.rows; i++) {
             var rand_col = parseInt(Math.random() * this.columns);
             var land_arr_pos = getArrayPosFrom(row, rand_col, this.columns);
 
@@ -243,6 +224,7 @@ class CollageBuild{
         this.img_arr.forEach(function(item, index) {
             if(item.indexOf("_P") >=0) n++;
             console.log(item);
+             console.log(n);
         });
         return n;
     }
@@ -332,6 +314,7 @@ class CollageBuild{
                 while(finalPosition == null) {
                     r = this.getRandomFinalPosition(false);
                     finalPosition = this.port_img_pos[r];
+                    console.log("p");
                 }
 //                console.log("P>>");
 //                console.log(finalPosition);

@@ -2,12 +2,16 @@
 var logo_src = "/Media/Animation/logo_d2s.PNG";
 var flicker_len = 2;
 var fade_len = 7;
+var width = 0;
+var flickerheight = 0;
+var top = 0;
+
 window.addEventListener("collageFilesLoaded", function(){
     var collage_imgs = collage_file_src;
     
     //CREATE CONTROL BUTTON
     var b = document.createElement("button");
-    b.innerHTML = "step";
+    b.innerHTML = "<b>COLLAGE</b>";
 //    b.style.position = "absolute";
     b.style.marginBottom = "20px";
     b.style.margin = "auto";
@@ -32,7 +36,7 @@ window.addEventListener("collageFilesLoaded", function(){
 
     //ANIMATIONS
     var collageBuild = function() {
-        var c = new CollageBuild(d, collage_imgs); //ADD BUTTON TO BUILD
+        var c = new CollageBuild(d, collage_imgs, ); //ADD BUTTON TO BUILD
         c.addIMG();
     }
     var f;
@@ -46,12 +50,22 @@ window.addEventListener("collageFilesLoaded", function(){
     //FUNCTION TO FACILITATE CLICK THROUGH
     var stepThrough = function() {
         console.log("stepThrough");
-        if(step == 1)
+        if(step == 1){
+             b.innerHTML = "<b>FLICKER</b>";
             collageBuild();
-        else if(step == 2)
-            flickerIn();
-        else if(step == 3) 
+        }
+            
+        else if(step == 2){
+             b.innerHTML = "<b>FADE</b>";
+             flickerIn();
+        }
+        else if(step == 3) {
+             b.innerHTML = "<b>RESET</b>";
             fadeOut();
+        }
+        else{
+            window.location.reload(false);
+        }
         step++;
     }
     //BUTTON TO CREATE FLYRE INTRO OBJECT
