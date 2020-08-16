@@ -12,9 +12,10 @@ window.addEventListener("collageFilesLoaded", function(){
     //CREATE CONTROL BUTTON
     var b = document.createElement("button");
     b.innerHTML = "<b>COLLAGE</b>";
-//    b.style.position = "absolute";
-    b.style.marginBottom = "20px";
-    b.style.margin = "auto";
+    b.style.position = "absolute";
+    b.style.top = "950px";
+//    b.style.marginBottom = "20px";
+   
     
     document.body.appendChild(b);
     //CREATE DIV - FLYER BODY
@@ -30,6 +31,9 @@ window.addEventListener("collageFilesLoaded", function(){
     //ADD TO DOCUMENT
     document.body.appendChild(d);
     document.body.style.backgroundColor = "black";
+     b.style.marginLeft = (parseInt(window.getComputedStyle(document.body).width) - parseInt(window.getComputedStyle(b).width)) / 2;
+//    b.style.marginRight = "auto";
+//    document.body.style.paddingTop = "20px";
 
     //CLICK THROUGH ANIMATIONS
     b.onclick = function() {stepThrough();};
@@ -38,15 +42,16 @@ window.addEventListener("collageFilesLoaded", function(){
     var collageBuild = function() {
         var c = new CollageBuild(d, collage_imgs, ); //ADD BUTTON TO BUILD
         c.addIMG();
-    }
+    } //BUILD COLLAGE FLYIN
     var f;
     var flickerIn = function() {
         f = new FlyerIntro(d, flicker_len, fade_len, logo_src);
         f.flickerIn();
-}
+} //FLICKER IN LOGO BLOCK
     var fadeOut = function() {
         f.fadeOut();
-    }
+    } //RUN FADE LOGO TO FLYER
+    
     //FUNCTION TO FACILITATE CLICK THROUGH
     var stepThrough = function() {
         console.log("stepThrough");

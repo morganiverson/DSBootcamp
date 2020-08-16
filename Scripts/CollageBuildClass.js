@@ -14,8 +14,7 @@ var trans_len = 1.5;
 class CollageBuild{
     constructor(parent, img_arr) {
         this.parent = parent;
-        
-        
+        this.parent.style.overflow = "hidden";
         this.img_arr = img_arr;
         this.col_img_arr = [];//CollageIMG Objects
         this.initialPositions = this.getInitialPositions(); 
