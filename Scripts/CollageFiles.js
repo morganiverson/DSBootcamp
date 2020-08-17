@@ -3,7 +3,7 @@
 var collage_file_src = [];
 window.onload = function() {
 
-    var path = "/Media/Collage/";
+    var path = "../Media/Collage/";
     var file_names = ["BenchUp_P.mp4",
                       "Circles_L.JPG",
                       "Cones_L.JPG",
