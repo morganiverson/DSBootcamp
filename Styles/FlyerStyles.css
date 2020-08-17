@@ -151,13 +151,11 @@ body{
 #scott_line_2{letter-spacing: .7}
 #scott_line_3 {letter-spacing: 2.5px;}
 #scott_line_4{letter-spacing: 1px;}
-#scott_line_5{letter-spacing: .7px;}
 
 #price_line_1{letter-spacing: .5;}
 #price_line_2{letter-spacing: -.3;}
 #price_line_3{letter-spacing: 2px;}
 #price_line_4{letter-spacing: -.5px;}
-/*#price_line_5{letter-spacing: }*/
 
 
 /*    DIV 4 - COST*/
@@ -202,7 +200,6 @@ body{
     font-size: 17px;
 } 
 
-
 /*    DIV 6 - DETAILS*/
 #details{
     box-sizing: border-box;
@@ -230,3 +227,10 @@ body{
 #hashtag{
     letter-spacing: 9px;
 }
+
+#legal{
+    font-size: 5; 
+    letter-spacing: 3.5px;
+    position: absolute;
+    width:480px;
+    top: 630px;}
