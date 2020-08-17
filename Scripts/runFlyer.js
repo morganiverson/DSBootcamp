@@ -14,7 +14,7 @@ window.addEventListener("collageFilesLoaded", function(){
     var b = document.createElement("button");
     b.innerHTML = "<b>COLLAGE</b>";
     b.style.position = "absolute";
-    b.style.top = "900px";
+    b.style.top = "855px";
    
     document.body.appendChild(b);
 //        b.style.marginLeft = 45%;//(parseInt(window.getComputedStyle(document.body).width) - parseInt(window.getComputedStyle(b).width)) / 2;
@@ -29,7 +29,7 @@ window.addEventListener("collageFilesLoaded", function(){
     d.style.width = 600;
     d.style.backgroundColor = "black";
     d.style.border = "1px solid rgb(43, 43, 43)";// "1px solid white";
-    d.style.margin = " 50 auto auto";
+    d.style.margin = " 30 auto auto";
     d.style.position = "relative";
     var step = 1;
 
