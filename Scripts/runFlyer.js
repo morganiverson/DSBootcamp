@@ -1,5 +1,5 @@
 //IMAGES
-var logo_src = "/Media/Animation/logo_d2s.PNG";
+var logo_src = "Media/Animation/logo_d2s.PNG";
 var flicker_len = 2;
 var fade_len = 7;
 var width = 0;

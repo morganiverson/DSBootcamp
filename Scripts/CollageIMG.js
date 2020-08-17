@@ -11,7 +11,7 @@ class CollageIMG{
 //        outer.style.border = "1px solid black";
          outer.style.top = initialTop;
         outer.style.left = initialLeft;
-        
+        outer.style.willChange = "top, left";
         var inner;
         
         if(this.img) {
