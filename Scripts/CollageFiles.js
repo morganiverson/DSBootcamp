@@ -3,7 +3,7 @@
 var collage_file_src = [];
 window.onload = function() {
 
-    var path = "../Media/Collage/";
+    var path = "../../Media/Collage/";
     var file_names = ["BenchUp_P.mp4",
                       "Circles_L.JPG",
                       "Cones_L.JPG",
@@ -26,6 +26,7 @@ window.onload = function() {
 
     file_names.forEach(function(item){
         collage_file_src.push(path + item);
+        console.log(path);
     });
     console.log(collage_file_src);
 

@@ -27,14 +27,15 @@ class CollageIMG{
 //        console.log("IMG:: " + this.img + "\nSRC:: " + img_src);
         
         inner.src = img_src;
+        inner.id = "ColIMG_" + img_src;
         inner.style.objectFit = "cover";
         inner.style.height = "100%"; //width
         inner.style.width = "100%"; //height
-       
+        
         
         outer.appendChild(inner);
         parent.appendChild(outer);
-        
+        console.log(document.getElementById("ColIMG_" + img_src).src);
         this.html_elm_img = outer;
         this.finalTop = finalTop;
         this.finalLeft = finalLeft;
