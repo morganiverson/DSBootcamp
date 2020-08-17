@@ -23,6 +23,3 @@ styles.forEach(function(item) {
     
     head.appendChild(newStyle);
 });
-window.onload = function(){
-    document.body.style.zoom = "80%";
-}

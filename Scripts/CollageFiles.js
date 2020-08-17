@@ -3,7 +3,9 @@
 var collage_file_src = [];
 window.onload = function() {
 
-    var path = "../../Media/Collage/";
+    var path = "Media/Collage/";
+    /* THES SRC OF IMG IS IN index.html
+    WHICH IS AT THE ROOT. ITS NOT FROM HERE! SO THERES NO NEED TO GO BACKWARDS */
     var file_names = ["BenchUp_P.mp4",
                       "Circles_L.JPG",
                       "Cones_L.JPG",
