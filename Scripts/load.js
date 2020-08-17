@@ -22,4 +22,7 @@ styles.forEach(function(item) {
     newStyle.href = path + item;
     
     head.appendChild(newStyle);
-})
+});
+window.onload = function(){
+    document.body.style.zoom = "80%";
+}

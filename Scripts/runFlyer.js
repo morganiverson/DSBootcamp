@@ -9,15 +9,20 @@ var top = 0;
 window.addEventListener("collageFilesLoaded", function(){
     var collage_imgs = collage_file_src;
     
+    
     //CREATE CONTROL BUTTON
     var b = document.createElement("button");
     b.innerHTML = "<b>COLLAGE</b>";
     b.style.position = "absolute";
-    b.style.top = "950px";
-//    b.style.marginBottom = "20px";
+    b.style.top = "900px";
    
-    
     document.body.appendChild(b);
+//        b.style.marginLeft = 45%;//(parseInt(window.getComputedStyle(document.body).width) - parseInt(window.getComputedStyle(b).width)) / 2;
+    b.style.left = "50%";
+
+  b.style.marginLeft = -1 * (parseInt(window.getComputedStyle(b).width) / 2);
+    
+    console.log( window.getComputedStyle(b).width);
     //CREATE DIV - FLYER BODY
     var d = document.createElement("div");
     d.style.height = 800;
@@ -31,9 +36,6 @@ window.addEventListener("collageFilesLoaded", function(){
     //ADD TO DOCUMENT
     document.body.appendChild(d);
     document.body.style.backgroundColor = "black";
-     b.style.marginLeft = (parseInt(window.getComputedStyle(document.body).width) - parseInt(window.getComputedStyle(b).width)) / 2;
-//    b.style.marginRight = "auto";
-//    document.body.style.paddingTop = "20px";
 
     //CLICK THROUGH ANIMATIONS
     b.onclick = function() {stepThrough();};
@@ -73,5 +75,4 @@ window.addEventListener("collageFilesLoaded", function(){
         }
         step++;
     }
-    //BUTTON TO CREATE FLYRE INTRO OBJECT
     });
